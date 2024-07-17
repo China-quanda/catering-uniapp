@@ -5,8 +5,64 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
+		},
+		{
+			"path": "pages/mine/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
 		}
 	],
+	"tabBar": {
+		"color": "#000000",
+		"selectedColor": "#000000",
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/images/tabbar/home.png",
+				"selectedIconPath": "static/images/tabbar/home_.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/images/tabbar/mine.png",
+				"selectedIconPath": "static/images/tabbar/mine_.png",
+				"text": "点餐"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/images/tabbar/mine.png",
+				"selectedIconPath": "static/images/tabbar/mine_.png",
+				"text": "订单"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/images/tabbar/mine.png",
+				"selectedIconPath": "static/images/tabbar/mine_.png",
+				"text": "商城/电商"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/images/tabbar/mine.png",
+				"selectedIconPath": "static/images/tabbar/mine_.png",
+				"text": "取茶"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/images/tabbar/mine.png",
+				"selectedIconPath": "static/images/tabbar/mine_.png",
+				"text": "会员"
+			},
+			{
+				"pagePath": "pages/mine/index",
+				"iconPath": "static/images/tabbar/mine.png",
+				"selectedIconPath": "static/images/tabbar/mine_.png",
+				"text": "我的"
+			}
+		]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

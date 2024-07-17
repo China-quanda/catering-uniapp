@@ -1,52 +1,33 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
+		<swiper class="swiper radius-8" circular :indicator-dots="true" :autoplay="true" :interval="2500" :duration="500">
+			<swiper-item class="swiper-item">
+				<image class="swiper-item-img" src="@/static/images/index/banner01.png" mode="aspectFill" :draggable="false" />
+			</swiper-item>
+			<swiper-item class="swiper-item">
+				<image class="swiper-item-img" src="@/static/images/index/banner02.png" mode="aspectFill" :draggable="false" />
+			</swiper-item>
+		</swiper>
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
-	}
+<script setup lang="ts">
+	// import {ref} from 'vue'
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+<style scoped lang="scss">
+.swiper {
+	--swiper-height:230px;
+	height: var(--swiper-height);
+	background-color: cadetblue;
+	.swiper-item {
+		display: block;
+		height: var(--swiper-height);
+		.swiper-item-img {
+			width: 100%;
+			height: var(--swiper-height);
+		}
 	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+	
+}
 </style>
