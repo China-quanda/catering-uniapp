@@ -32,6 +32,50 @@
 				<text class="text">电商购</text>
 			</div>
 		</view>
+		<view class="services">
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">呼叫服务</text>
+			</view>
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">加熟客群</text>
+			</view>
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">优惠券</text>
+			</view>
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">领券中心</text>
+			</view>
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">钱包充值</text>
+			</view>
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">邀请有礼</text>
+			</view>
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">成为合伙人</text>
+			</view>
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">活动中心</text>
+			</view>
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">每日抽奖/会员免费抽</text>
+			</view>
+		</view>
+		活动专区/优惠专区/我的优惠专区
+		热销推荐
+		福利中心。
+		必喝榜
+		xx月好喝榜
+		
 	</view>
 </template>
 
@@ -98,12 +142,13 @@
 			margin: 0px 10px;
 
 			.user-name {
-				font-size: 14px;
+				font-size: 13px;
 				color: #333333;
 			}
 
 			.user-desc {
-				font-size: 11px;
+				margin-top: 3px;
+				font-size: 10px;
 				color: #AAAAAA;
 			}
 		}
@@ -180,6 +225,30 @@
 			grid-column: 2 / 4;
 			/* 合并占据1到2列 */
 			height: 70px;
+		}
+	}
+
+	.services{
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-gap: 5px;
+		padding: var(--catering-home-padding-x);
+		margin: 0px var(--catering-home-margin-x);
+		margin-top: var(--catering-home-margin-y);
+		border-radius: var(--catering-home-border-radius);
+		background-color: white;
+		.service-item{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			.img{
+				width: 40px;
+				height: 40px;
+			}
+			.text{
+				margin-top: 5px;
+				font-size: 13px;
+			}
 		}
 	}
 </style>
