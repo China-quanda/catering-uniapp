@@ -17,15 +17,15 @@
 
 <style scoped lang="scss">
 .swiper {
-	--swiper-height:230px;
-	height: var(--swiper-height);
+	--catering-home-swiper-height:230px;
+	height: var(--catering-home-swiper-height);
 	background-color: cadetblue;
 	.swiper-item {
 		display: block;
-		height: var(--swiper-height);
+		height: var(--catering-home-swiper-height);
 		.swiper-item-img {
 			width: 100%;
-			height: var(--swiper-height);
+			height: var(--catering-home-swiper-height);
 		}
 	}
 	
