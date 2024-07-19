@@ -184,7 +184,22 @@
 </template>
 
 <script setup lang="ts">
+	import { onShareAppMessage,onShareTimeline } from '@dcloudio/uni-app';
 	// import {ref} from 'vue'
+	
+	// 发送给朋友
+	onShareAppMessage(() => {
+		return {
+			title:'xxx螺狮粉',
+		}
+	})
+	
+	// 分享到朋友圈
+	onShareTimeline(() => {
+		return {
+			title:'xxx螺狮粉',
+		}
+	});
 </script>
 
 <style scoped lang="scss">
