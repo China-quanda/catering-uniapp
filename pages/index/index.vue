@@ -69,13 +69,117 @@
 				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
 				<text class="text">每日抽奖/会员免费抽</text>
 			</view>
+			<view class="service-item">
+				<image class="img" src="@/static/logo.png" mode="aspectFill" :draggable="false" />
+				<text class="text">签到</text>
+			</view>
 		</view>
-		活动专区/优惠专区/我的优惠专区
-		热销推荐
-		福利中心。
-		必喝榜
-		xx月好喝榜
+		<view class="">
+			活动专区/优惠专区/我的优惠专区
+			热销推荐
+			福利中心。
+			必喝榜
+			xx月好喝榜
+		</view>
 		
+		<view class="card-box discounts-box">
+			<view class="title-section">
+				<view class="left"> 我的优惠专区 </view>
+				<view class="right"> 查看全部 </view>
+			</view>
+			<view class="list">
+				<view class="item" v-for="item in 3">
+					<view class="text">
+						<view class="product-name">拿铁</view>
+						<view class="product-quan">
+							<view class="quan-type">直减价</view>
+							<view class="quan-price">
+								<text class="currency">¥</text>
+								<text class="presentPrice">9.9</text>
+								<text class="originalPrice">¥29</text>
+							</view>
+						</view>
+					</view>
+					<image class="product-img" src="../../static/logo.png"></image>
+				</view>
+			</view>
+		</view>
+		
+		<view class="card-box weal-box">
+			<view class="title-section">
+				<view class="left"> 福利中心 </view>
+				<view class="right"> 查看全部 </view>
+			</view>
+			<view class="list">
+				<view class="item">
+					<view class="title">#吃螺狮粉挑战</view>
+					<view class="desc">再吃5碗达成</view>
+				</view>
+				<view class="item">
+					<view class="title">本月螺狮粉达人</view>
+					<view class="desc">马上冲榜</view>
+				</view>
+				<view class="item">
+					<view class="title">邀请有礼</view>
+					<view class="desc">邀请免费吃</view>
+				</view>
+				<view class="item">
+					<view class="title">#吃螺狮粉挑战</view>
+					<view class="desc">再吃5碗达成</view>
+				</view>
+			</view>
+		</view>
+		
+		<view class="monthHot-box">
+			<view class="title-section">
+				8月好吃榜
+			</view>
+			<view class="shop">
+				<text class="shop-icon iconfont"></text>
+				<text class="shop-name">郴州友阿国际店</text>
+			</view>
+			<view class="list" >
+				<view class="item" v-for="item in 3">
+					<view class="product-item" v-for="i in 5">
+						<view class="left">
+							<text class="no">TOP1</text>
+							<image class="img" src="../../static/logo.png" mode=""></image>
+						</view>
+						<view class="content">
+							<view class="name">
+								生椰拿铁
+							</view>
+							<view class="price">
+								<text class="currency">¥</text>
+								<text class="presentPrice">9.9</text>
+								<text class="originalPrice">¥29</text>
+							</view>
+						</view>
+						<view class="right">
+							<view class="icon">
+								+
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+		<view class="selectShop-box">
+			<view class="selectShop-left">
+				<view class="title">
+					选择门店>
+				</view>
+				<view class="desc">
+					发现你的幸运门店
+				</view>
+			</view>
+			<view class="selectShop-right">
+				<!-- <image class="img" src="../../static/logo.png" mode=""></image> -->
+			</view>
+		</view>
+		
+		<view style="height: 15px;"></view>
 	</view>
 </template>
 
@@ -95,7 +199,7 @@
 		--catering-home-padding-y: 12px;
 		--catering-home-padding-x: 12px;
 		background-color: #f5f6f7;
-		height: 100vh;
+		min-height: 100vh;
 	}
 
 	.swiper {
@@ -249,6 +353,283 @@
 				margin-top: 5px;
 				font-size: 13px;
 			}
+		}
+	}
+	
+	.card-box{
+		padding: var(--catering-home-padding-x);
+		margin: 0px var(--catering-home-margin-x);
+		margin-top: var(--catering-home-margin-y);
+		border-radius: var(--catering-home-border-radius);
+		background-color: white;
+		.title-section{
+			display: flex;
+			align-items: center;
+			font-size: 15px;
+			margin-bottom: 10px;
+			.left{
+				flex: 1;
+				font-weight: 500;
+			}
+			.right{
+				flex-shrink: 0;
+				font-size: 12px;
+				color: #bfbfbf;
+			}
+		}
+	}
+	
+	.discounts-box{
+		.list{
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 10px;
+			.item{
+				position: relative;
+				color: white;
+				padding: 10px;
+				padding-bottom: 15px;
+				box-sizing: border-box;
+				border-radius: 8px;
+				background-color: #F5F5F5;
+				&:first-child{
+					height: unset;
+					grid-row: 1 / 3;
+					grid-column: 1 / 2;
+					.product-img{
+						width: 80px;
+						height: 80px;
+					}
+				}
+				.text{
+					width: 60px;
+					.product-name{
+						color: #333;
+						font-family: 'kksjt';
+						letter-spacing: 2px;
+					}
+					.quan-type{
+						height: 20px;
+						line-height: 20px;
+						text-align: center;
+						font-size: 11px;
+						font-weight: 500;
+						border-radius: 3px 3px 6px 6px;
+						transform: translateY(5px);
+						background-color: #0022AA;
+						z-index: 1;
+					}
+					.quan-price{
+						padding-top: 4px;
+						padding-bottom: 3px;
+						text-align: center;
+						// transform: translateY(-10px);
+						border-radius: 0 0 6px 6px;
+						background-color: #C2A279;
+						z-index: 0;
+					}
+					.currency{
+						font-size: 12px;
+					}
+					.presentPrice{
+						font-size: 13px;
+						font-weight: 500;
+					}
+					.originalPrice{
+						margin-left: 3px;
+						text-decoration: line-through;
+						color: #f4e0ca;
+						font-size: 10px;
+						font-weight: 500;
+					}
+				}
+				.product-img{
+					position: absolute;
+					bottom: 6px;
+					right: 6px;
+					width: 60px;
+					height: 60px;
+				}
+			}
+		}
+		
+	}
+	
+	.weal-box{
+		.list{
+			display: flex;
+			gap: 10px;
+			overflow-x: scroll;
+			&::-webkit-scrollbar{
+				display: none;
+			}
+			.item{
+				padding: 10px 10px 15px 15px;
+				box-sizing: border-box;
+				min-width: 50%;
+				border-radius: 8px;
+				background-color: #FDEEE9;
+				.title{
+					color: #333;
+					font-size: 14px;
+					font-weight: 500;
+				}
+				.desc{
+					font-size: 12px;
+					color: #E06144;
+				}
+			}
+		}
+	}
+	
+	.monthHot-box{
+		padding: var(--catering-home-padding-x);
+		margin: 0px var(--catering-home-margin-x);
+		margin-top: var(--catering-home-margin-y);
+		border-radius: var(--catering-home-border-radius);
+		// overflow: hidden;
+		background-image: linear-gradient(82deg, #15c3db, #BFE8EE);
+		.title-section{
+			font-size: 15px;
+			font-weight: bold;
+			color: white;
+		}
+		.shop{
+			display: flex;
+			align-items: center;
+			color: white;
+			.shop-name{
+				font-size: 12px;
+			}
+		}
+		.list{
+			margin-top: 10px;
+			display: flex;
+			gap:10px;
+			border-radius: var(--catering-home-border-radius);
+			overflow-x: scroll;
+			&::-webkit-scrollbar{
+				display: none;
+			}
+			.item{
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				width: 60%;
+				min-width: 60%;
+				max-width: 60%;
+				padding: 10px;
+				border-radius: 8px;
+				background-color: rgba(255,255,255, 0.3);
+				backdrop-filter: blur(5px);
+				-webkit-backdrop-filter: blur(5px); /* 针对Safari和Chrome */
+			}
+		}
+		.product-item{
+			width: 100%;
+			// background-color: #28d8f1;
+			display: flex;
+			gap: 10px;
+			
+			.left{
+				position: relative;
+				width: 40px;
+				height: 40px;
+				flex-shrink: 0;
+				border-radius: 4px;
+				overflow: hidden;
+				.no{
+					position: absolute;
+					top: 0;
+					left:0;
+					color: white;
+					padding: 1px 3px;
+					font-size: 8px;
+					border-radius: 0 0 5px 0;
+					background-color: #0022AA;
+					z-index: 1;
+				}
+				.img{
+					width: 40px;
+					height: 40px;
+				}
+			}
+			.content{
+				flex: 1;
+				.name{
+					color: #333;
+					font-size: 13px;
+				}
+				.price{
+					.currency{
+						font-size: 12px;
+					}
+					.presentPrice{
+						color: #000;
+						font-size: 14px;
+						font-weight: 500;
+					}
+					.originalPrice{
+						margin-left: 5px;
+						text-decoration: line-through;
+						color: #6B6D6C;
+						font-size: 10px;
+						font-weight: 500;
+					}
+				}
+			}
+			.right{
+				display: flex;
+				align-items: center;
+				width: 15px;
+				.icon{
+					// position: abs
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 15px;
+					width: 15px;
+					height: 15px;
+					border-radius: 999px;
+					background-color: white;
+				}
+			}
+		}
+	}
+	
+	.selectShop-box{
+		padding: 20px;
+		margin: 0px var(--catering-home-margin-x);
+		margin-top: var(--catering-home-margin-y);
+		border-radius: var(--catering-home-border-radius);
+		background-color: white;
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		.selectShop-left{
+			.title{
+				color: #000;
+				font-size: 14px;
+			}
+			.desc{
+				margin-top: 5px;
+				color: #676767;
+				font-size: 12px;
+			}
+		}
+		.selectShop-right{
+			position: absolute;
+			right: 20px;
+			top: 15px;
+			bottom: 15px;
+			width: 60px;
+			background-image: url('../../static/logo.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+			// .img{
+			// 	width: 40px;
+			// 	height: 40px;
+			// }
 		}
 	}
 </style>
