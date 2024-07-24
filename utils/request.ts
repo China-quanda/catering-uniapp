@@ -21,7 +21,7 @@ const request = (config:any) => {
   return new Promise((resolve, reject) => {
     uni.request({
       // url: config.baseUrl || 'http://192.168.43.245:7001/api/app' + config.url,
-      url: config.baseUrl || 'http://127.0.0.1:7001/api/miniapp' + config.url,
+      url: config.baseUrl || 'http://127.0.0.1:3000/api/miniapp' + config.url,
       method: config.method || 'get',
       timeout: config.timeout || 10000,
       data: config.data,

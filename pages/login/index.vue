@@ -23,7 +23,7 @@
         </view>
       </view>
       <view class="login-btns">
-        <button v-if="loginType === 'ksdl' && isCheckd" class="btn yjdl" open-type="getPhoneNumber"  @getphonenumber="decryptPhoneNumber">一键登录</button>
+        <button v-if="loginType === 'ksdl' && isCheckd" class="btn yjdl" open-type="getPhoneNumber"  @getphonenumber="handlePhoneNumberLogin">一键登录</button>
         <button v-if="loginType === 'ksdl' && !isCheckd" class="btn yjdl" @click="tipsCheck">一键登录</button>
         <view v-if="loginType === 'ksdl'" class="btn yzmdl" @click="loginType = 'vfdl'">验证码登录</view>
         <view v-if="loginType === 'vfdl'" class="btn yjdl" @click="handleVfLogin">登录/注册</view>
@@ -111,11 +111,46 @@ function backPage() {
   uni.navigateBack()
 }
 
+function wxLogin(){
+	uni.login({
+	  provider: 'weixin',
+	  success: ({code})=> {
+			console.log({code});
+			uni.getUserInfo({
+			      provider: 'weixin',
+			      success: function (infoRes) {
+			        console.log(infoRes );
+			      }
+			    });
+	  },
+		fail:()=>{
+			reject('登录失败')
+		}
+	});
+}
 /**手机号码登录 */
 async function  handlePhoneNumberLogin(e) {
-  console.log('e', e)
-
-  const { detail: { encryptedData, iv, code ,errMsg} } = e;
+	uni.login({
+	  provider: 'weixin',
+	  success: ({code})=> {
+			console.log('login-code',code);
+			phoneNumberLogin({ encryptedData:'encryptedData', iv:'iv', code }).then(res=>{
+				console.log('res',res);
+			})
+			uni.getUserInfo({
+			  provider: 'weixin',
+			  success:  (infoRes)=> {
+			    console.log('getUserInfo',infoRes );
+			  }
+			});
+	  },
+		fail:()=>{
+			reject('登录失败')
+		}
+	});
+	return 
+	
+  const { detail: { encryptedData, iv ,errMsg,code} } = e;
 
   if(errMsg !== 'getPhoneNumber:ok'){
     return 
@@ -125,7 +160,8 @@ async function  handlePhoneNumberLogin(e) {
 	
 	// 发送code、encryptedData、iv到后端
 	phoneNumberLogin({ encryptedData, iv, code }).then(res=>{
-		uni.reLaunch({ url:'/pages/mine/index' })
+		// uni.reLaunch({ url:'/pages/mine/index' })
+		console.log('res',res);
 	}).finally(()=>{
 		uni.hideLoading()
 	})

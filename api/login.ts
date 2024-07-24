@@ -17,6 +17,7 @@ export interface PhoneCodeLoginData {
  * 快捷登录
  */
 export const phoneNumberLogin =(data:PhoneNumberLoginData):Promise<PhoneNumberLoginRes>=> {
+	console.log('phoneNumberLogin',data);
   return request({
     url: '/login/phoneNumberLogin',
     method: 'POST',
