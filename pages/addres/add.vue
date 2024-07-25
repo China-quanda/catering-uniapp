@@ -155,7 +155,7 @@ onLoad((params) => {
 
 .form {
   // margin: 12px;
-  padding: 12px;
+  padding: 5px 12px;
   border-radius: 12px;
   background-color: white;
 
@@ -165,7 +165,9 @@ onLoad((params) => {
     padding: 12px 0px;
     font-size: 14px;
     border-bottom: 1px solid #f5f6f7;
-
+    &:last-child {
+      border-bottom: none;
+    }
     .form-item-title {
       flex-shrink: 0;
       min-width: 80px;
