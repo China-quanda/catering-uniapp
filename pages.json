@@ -21,6 +21,18 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/addres/list",
+			"style": {
+				"navigationBarTitleText": "地址管理"
+			}
+		},
+		{
+			"path": "pages/addres/add",
+			"style": {
+				"navigationBarTitleText": "添加地址"
+			}
 		}
 	],
 	"tabBar": {
