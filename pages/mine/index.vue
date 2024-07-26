@@ -4,7 +4,7 @@
 			<view class="user-bg">
 				<view class="user-bg-wrap"></view>
 			</view>
-			<view class="user" v-if="token">
+			<view class="user" v-if="token" @click="handleGoto('/pages/mine/info')">
 				<view class="user-avatar">
 					<image class="user-img" src="https://via.placeholder.com/35x35/" />
 				</view>

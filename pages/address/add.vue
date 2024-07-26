@@ -289,6 +289,8 @@ onLoad((params) => {
   border-radius: 8px !important;
   border: 1px solid #ebe7e7 !important;
   background-color: #ebe7e7 !important;
-
+  &::after{
+      border: 0px solid transparent !important;
+    }
 }
 </style>
