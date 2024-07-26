@@ -23,13 +23,13 @@
 			}
 		},
 		{
-			"path": "pages/addres/list",
+			"path": "pages/address/list",
 			"style": {
 				"navigationBarTitleText": "地址管理"
 			}
 		},
 		{
-			"path": "pages/addres/add",
+			"path": "pages/address/add",
 			"style": {
 				"navigationBarTitleText": "添加地址"
 			}
