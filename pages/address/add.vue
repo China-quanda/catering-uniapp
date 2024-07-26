@@ -83,6 +83,7 @@
     </view>
     <button class="button" hover-class="button-hover" :disabled="submitBtnIsDisabled || loading" @click="handleSubmit">{{ pageTitle
       }}地址</button>
+      <view style="margin-top: 20px;font-size: 14px;color: #444;text-align: center;" @click="chooseAddress">微信导入</view>
   </view>
 </template>
 
@@ -106,10 +107,22 @@ const loading = ref(false)
 
 const submitBtnIsDisabled = computed(() => form.name && form.sex && form.phone && form.address && form.houseNumber ? false : true)
 
+function chooseAddress(){
+  uni.chooseAddress({
+  success(res) {
+    form.name = res.userName
+    form.phone = res.telNumber
+    form.address = res.provinceName + res.cityName + res.countyName + res.detailInfo
+    form.houseNumber = res.streetName + res.detailInfoNew
+  }
+})
+}
+
 function chooseLocation() {
   uni.chooseLocation({
     success: (res) => {
       form.address = res.address
+      form.houseNumber = res.name
       console.log('位置名称：' + res.name);
       console.log('详细地址：' + res.address);
       console.log('纬度：' + res.latitude);
