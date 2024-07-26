@@ -46,7 +46,7 @@
         <view class="form-item-input">
           <view class="choose" @click="chooseLocation">
             <text> {{ form.address ? form.address : '点击选择地址' }} </text>
-            <text class="icon"> > </text>
+            <my-icon icon="icon-xiangyou" color="#aba1a1" />
           </view>
         </view>
       </view>
