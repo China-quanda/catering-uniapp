@@ -94,7 +94,7 @@ const pageTitle = ref('添加')
 
 const form = reactive({
   name: null,
-  sex: null,
+  sex: 1,
   phone: '',
   address: null,
   houseNumber: null,

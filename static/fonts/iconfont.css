@@ -4,7 +4,7 @@
 	src: url('@/static/fonts/iconfont.ttf') format('truetype');
 /* #endif */
   /* #ifdef MP-WEIXIN */
-		src: url('https://at.alicdn.com/t/c/font_4633598_beaem53x3rh.ttf?t=1721956720400') format('truetype');
+		src: url('https://at.alicdn.com/t/c/font_4633598_wpuedi9vdsm.ttf?t=1721965050740') format('truetype');
   /* #endif */
 }
 .iconfont {
@@ -16,6 +16,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.icon-bianji:before {
+  content: "\e7dd";
+}
 
 .icon-shoucang:before {
   content: "\e617";
