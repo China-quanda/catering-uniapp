@@ -1,7 +1,8 @@
 <template>
   <view class="container">
     <view class="list" v-if="list.length">
-      <view class="item" v-for="item in list" :key="item.id" @click="handleGotoAddAddress('edit', item.id)">
+      <view class="item" v-for="item in list" :key="item.id" @click="handleGotoAddAddress('edit', item.id)"
+        @longpress="deleteItem(item.id)">
         <view class="item-left">
           <view class="item-left-top">
             <view class="tags" v-if="item.tag">
@@ -46,7 +47,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-const list = ref([])
+const list = ref<any[]>([])
 
 function loadAddressList() {
   setTimeout(() => {
@@ -135,6 +136,25 @@ function loadAddressList() {
   }, 1000);
 }
 
+function deleteItem(addressId) {
+  list.value.find((item, index) => {
+    if (item.id === addressId) {
+      uni.showModal({
+        title: '删除地址提示',
+        content: `是否删 ${item.name}${item.sex === 1 ? '(先生)' : '(女士)'} ${item.address} 的地址`,
+        success: (res) => {
+          if (res.confirm) {
+            console.log('用户点击确定');
+            list.value.splice(index, 1)
+          } else if (res.cancel) {
+            console.log('用户点击取消');
+          }
+        }
+      });
+    }
+  })
+
+}
 const phonePrivate = (phone: string): string => phone.replace(phone.substring(3, 7), '****')
 function handleGotoAddAddress(type, id = null) {
   let url = `/pages/address/add`
