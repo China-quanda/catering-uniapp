@@ -48,7 +48,8 @@
           <text>手机号</text>
         </view>
         <view class="form-item-input">
-          <input v-model="form.phone" type="number" placeholder="请填写手机号码" maxlength="11" />
+          <input v-if="!form.phone" v-model="form.phone" type="number" placeholder="请填写手机号码" maxlength="11" />
+          <text v-else>{{ phonePrivate(form.phone) }}</text>
         </view>
       </view>
       <view class="form-item">
@@ -75,6 +76,7 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
+import { phonePrivate } from '@/utils'
 
 const form = reactive({
   name: null,

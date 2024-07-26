@@ -191,7 +191,7 @@
 					<text class="icon"></text>
 					<text class="title">关于我们</text>
 				</view>
-				<view class="item">
+				<view class="item" @click="handleGoto('/pages/mine/info')">
 					<text class="icon"></text>
 					<text class="title">个人资料</text>
 				</view>

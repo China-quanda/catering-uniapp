@@ -23,3 +23,5 @@ export function tansParams(params) {
 	}
 	return result
 }
+
+export const phonePrivate = (phone: string): string => phone.replace(phone.substring(3, 7), '****')

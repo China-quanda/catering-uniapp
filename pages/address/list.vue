@@ -46,6 +46,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { phonePrivate } from '@/utils'
 
 const list = ref<any[]>([])
 
@@ -155,7 +156,7 @@ function deleteItem(addressId) {
   })
 
 }
-const phonePrivate = (phone: string): string => phone.replace(phone.substring(3, 7), '****')
+
 function handleGotoAddAddress(type, id = null) {
   let url = `/pages/address/add`
   if (type === 'edit') {
