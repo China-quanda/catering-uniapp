@@ -131,9 +131,9 @@
 					<text class="icon"></text>
 					<text class="title">我的优惠券</text>
 				</view>
-				<view class="item">
+				<view class="item" @click="handleGoto('/pages/address/list')">
 					<text class="icon"></text>
-					<text class="title">我的地址</text>
+					<text class="title">地址管理</text>
 				</view>
 				<view class="item">
 					<text class="icon"></text>
@@ -226,7 +226,9 @@
 <script setup lang="ts">
 	import {ref} from 'vue'
 	const token = ref('11')
-	
+	function handleGoto(url) {
+  	uni.navigateTo({ url })
+	}
 </script>
 
 <style scoped lang="scss">

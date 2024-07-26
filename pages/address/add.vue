@@ -137,7 +137,7 @@ function handleSubmit() {
 
 onLoad((params) => {
   console.log('onLoad', params)
-  if (params && params.addresId) {
+  if (params && params.addressId) {
     pageTitle.value = '修改'
     uni.setNavigationBarTitle({
       title: pageTitle.value + '地址'
@@ -150,6 +150,7 @@ onLoad((params) => {
 .container {
   padding: 12px;
   min-height: calc(100vh - var(--window-top) - var(--window-bottom));
+  box-sizing: border-box;
   background-color: #f5f6f7;
 }
 
