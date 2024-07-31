@@ -23,7 +23,8 @@
         </view>
       </view>
       <view class="login-btns">
-        <button v-if="loginType === 'ksdl' && isCheckd" class="btn yjdl" open-type="getPhoneNumber"  @getphonenumber="handlePhoneNumberLogin">一键登录</button>
+        <!-- <button v-if="loginType === 'ksdl' && isCheckd" class="btn yjdl" open-type="getPhoneNumber"  @getphonenumber="handlePhoneNumberLogin">一键登录</button> -->
+        <button v-if="loginType === 'ksdl' && isCheckd" class="btn yjdl" @click="login">一键登录</button>
         <button v-if="loginType === 'ksdl' && !isCheckd" class="btn yjdl" @click="tipsCheck">一键登录</button>
         <view v-if="loginType === 'ksdl'" class="btn yzmdl" @click="loginType = 'vfdl'">验证码登录</view>
         <view v-if="loginType === 'vfdl'" class="btn yjdl" @click="handleVfLogin">登录/注册</view>
@@ -44,7 +45,7 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import {phoneNumberLogin,phoneCodeLogin,getSmsCode} from '@/api/login'
+import {phoneNumberLogin,phoneCodeLogin,getSmsCode,login} from '@/api/login'
 const isCheckd = ref(false)
 const loginType = ref('ksdl')
 const codeTips = ref('获取验证码')
@@ -53,6 +54,7 @@ const form = reactive({
   number: '',
   code: ''
 })
+
 /**账户密码登录注册 */
 function handleVfLogin() {
   if (form.number.length !== 11) {
@@ -112,24 +114,12 @@ function backPage() {
 }
 
 function wxLogin(){
-	uni.login({
-	  provider: 'weixin',
-	  success: ({code})=> {
-			console.log({code});
-			uni.getUserInfo({
-			      provider: 'weixin',
-			      success: function (infoRes) {
-			        console.log(infoRes );
-			      }
-			    });
-	  },
-		fail:()=>{
-			reject('登录失败')
-		}
-	});
+	login()
 }
+
 /**手机号码登录 */
 async function  handlePhoneNumberLogin(e) {
+	console.log('e',e);
 	uni.login({
 	  provider: 'weixin',
 	  success: ({code})=> {

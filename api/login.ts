@@ -75,9 +75,9 @@ export const getCode = (): Promise<string> => {
 
 export const weixinLogin = (code: string) => {
   return request({
-    url: '/login/miniapp/weixinLogin',
+    url: '/auth/login',
     method: 'POST',
-    params: {
+    data: {
       code
     }
   })
