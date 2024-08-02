@@ -29,7 +29,7 @@ export const phoneNumberLogin = (data: PhoneNumberLoginData): Promise<PhoneNumbe
  */
 export const phoneCodeLogin = (data: PhoneCodeLoginData): Promise<PhoneNumberLoginRes> => {
   return request({
-    url: '/login/phoneCodeLogin',
+    url: '/auth/phoneCodeLogin',
     method: 'POST',
     data
   })
@@ -40,10 +40,10 @@ export const phoneCodeLogin = (data: PhoneCodeLoginData): Promise<PhoneNumberLog
  */
 export const getSmsCode = (phone: string): Promise<string> => {
   return request({
-    url: '/login/phoneCodeLogin',
-    method: 'GET',
-    params: {
-      phone
+    url: '/captcha/generateCaptcha',
+    method: 'POST',
+    data: {
+      account:phone
     }
   })
 }

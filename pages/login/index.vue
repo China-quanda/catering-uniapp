@@ -14,10 +14,10 @@
       <view class="login-type-vfdl" v-else>
         <view class="form">
           <view class="input">
-            <input v-model="form.number" type="number" maxlength="11" placeholder="请输入手机号" />
+            <input v-model="form.phone" type="number" maxlength="11" placeholder="请输入手机号" />
           </view>
           <view class="input code">
-            <input v-model="form.code" type="number" maxlength="4" placeholder="请输入短信验证码" />
+            <input v-model="form.code" type="number" maxlength="6" placeholder="请输入短信验证码" />
             <view class="code_btn" :class="{ 'is-disabled': codeTime !== 60 }" @click="getCode">{{ codeTips }}</view>
           </view>
         </view>
@@ -51,20 +51,20 @@ const loginType = ref('ksdl')
 const codeTips = ref('获取验证码')
 const codeTime = ref(60)
 const form = reactive({
-  number: '',
+  phone: '',
   code: ''
 })
 
 /**账户密码登录注册 */
 function handleVfLogin() {
-  if (form.number.length !== 11) {
+  if (form.phone.length !== 11) {
     return uni.showModal({
       title: '提示',
       content: '手机号码无效！',
       showCancel: false,
     })
   }
-  if (form.code.length !== 4) {
+  if (form.code.length !== 6) {
     return uni.showModal({
       title: '提示',
       content: '验证码无效！',
@@ -92,8 +92,17 @@ function getCode() {
       showCancel: false,
     })
   }
+	if (form.phone.length !== 11) {
+	  return uni.showModal({
+	    title: '提示',
+	    content: '手机号码无效！',
+	    showCancel: false,
+	  })
+	}
   if (codeTime.value !== 60) return
-	// getSmsCode().then(res=>{ })
+	getSmsCode(form.phone).then(res=>{
+		console.log('getSmsCode-res',res);
+	})
   codeTime.value = 59
   codeTips.value = `${codeTime.value}s 后再获取`
   interval = setInterval(() => {
